@@ -1,0 +1,55 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="pkan.examplecontentfilter">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="pkan.examplecontentfilter.interfaces.IPkanExamplecontentfilterLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="pkan.examplecontentfilter"
+      type="plone"
+      directory="static"
+      />
+
+  <browser:page
+      class=".views.SourceForm"
+      for="pkan.examplecontentfilter.content.pkan_item.IPkanItem"
+      layer="pkan.examplecontentfilter.interfaces.IPkanExamplecontentfilterLayer"
+      name="source_form"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".views.FilterForm"
+      for="pkan.examplecontentfilter.content.pkan_item.IPkanItem"
+      layer="pkan.examplecontentfilter.interfaces.IPkanExamplecontentfilterLayer"
+      name="filter_form"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".views.CustomForm"
+      for="pkan.examplecontentfilter.content.pkan_item.IPkanItem"
+      layer="pkan.examplecontentfilter.interfaces.IPkanExamplecontentfilterLayer"
+      name="custom_form"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".views.ItemView"
+      for="pkan.examplecontentfilter.content.pkan_item.IPkanItem"
+      layer="pkan.examplecontentfilter.interfaces.IPkanExamplecontentfilterLayer"
+      name="view"
+      permission="zope2.View"
+      template="item.pt"
+      />
+
+
+</configure>

@@ -1,0 +1,3 @@
+=========================pkan.examplecontentfilter
+=========================
+User documentation
